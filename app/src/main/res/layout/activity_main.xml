@@ -62,8 +62,7 @@
 
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-        <!-- Insert here the ViewPager Indicator -->
+<!--
         <com.viewpagerindicator.TabPageIndicator
                 android:id="@+id/view_pager_indicator"
                 android:layout_width="match_parent"
@@ -82,12 +81,21 @@
                 app:selectedBold="true">
         </com.viewpagerindicator.TabPageIndicator>
 
-        <!-- Insert here the ViewPager -->
+-->
         <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/view_pager_indicator">
+                app:layout_constraintTop_toBottomOf="@id/layout_coordinator">
+
+            <androidx.viewpager.widget.PagerTabStrip
+                    android:id="@+id/pager_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:background="@color/colorPrimary"
+                    android:padding="13dp"/>
+
         </androidx.viewpager.widget.ViewPager>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
