@@ -3,12 +3,12 @@
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_root"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <android.support.design.widget.CoordinatorLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:id="@+id/layout_coordinator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -58,11 +58,10 @@
                         app:layout_constraintEnd_toEndOf="parent"
                 />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </android.support.design.widget.CoordinatorLayout>
-
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <!-- Insert here the ViewPager Indicator -->
         <com.viewpagerindicator.TabPageIndicator
@@ -77,13 +76,13 @@
         </com.viewpagerindicator.TabPageIndicator>
 
         <!-- Insert here the ViewPager -->
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/view_pager_indicator">
-        </android.support.v4.view.ViewPager>
+        </androidx.viewpager.widget.ViewPager>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
