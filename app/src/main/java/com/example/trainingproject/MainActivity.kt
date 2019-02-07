@@ -2,7 +2,7 @@ package com.example.trainingproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.viewpager.widget.ViewPager
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,10 +10,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewPager = findViewById<ViewPager>(R.id.view_pager)
-        if (viewPager != null) {
+        view_pager ?. let {
             val adapter = ViewPagerAdapter(supportFragmentManager)
-            viewPager.adapter = adapter
+            view_pager.adapter = adapter
         }
     }
 }
