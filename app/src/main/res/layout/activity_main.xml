@@ -40,8 +40,9 @@
 
                 <ImageView
                         android:id="@+id/iconButtonLeft"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="5dp"
                         app:layout_constraintStart_toEndOf="@id/btnTabFirst"
                         app:layout_constraintEnd_toEndOf="@id/btnTabFirst"
                         app:layout_constraintTop_toTopOf="@id/btnTabFirst"
@@ -67,8 +68,9 @@
 
                 <ImageView
                         android:id="@+id/iconButtonCenter"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="5dp"
                         app:layout_constraintStart_toEndOf="@id/btnTabSecond"
                         app:layout_constraintEnd_toEndOf="@id/btnTabSecond"
                         app:layout_constraintTop_toTopOf="@id/btnTabSecond"
@@ -95,8 +97,9 @@
 
                 <ImageView
                         android:id="@+id/iconButtonRight"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="5dp"
                         app:layout_constraintStart_toEndOf="@id/btnTabThird"
                         app:layout_constraintEnd_toEndOf="@id/btnTabThird"
                         app:layout_constraintTop_toTopOf="@id/btnTabThird"
