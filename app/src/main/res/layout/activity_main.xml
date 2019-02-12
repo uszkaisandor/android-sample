@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
             android:fillViewport="true"
             android:fitsSystemWindows="true"
             android:layout_width="match_parent"
@@ -115,26 +114,7 @@
 
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
-<!--
-        <com.viewpagerindicator.TabPageIndicator
-                android:id="@+id/view_pager_indicator"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/layout_coordinator"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:padding="10dp"
-                android:background="#18FF0000"
-                android:textColor="#AA000000"
-                app:footerColor="#FFAA2222"
-                app:footerLineHeight="1dp"
-                app:footerIndicatorHeight="3dp"
-                app:footerIndicatorStyle="underline"
-                app:selectedColor="#FF000000"
-                app:selectedBold="true">
-        </com.viewpagerindicator.TabPageIndicator>
 
--->
         <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
                 android:layout_width="0dp"
