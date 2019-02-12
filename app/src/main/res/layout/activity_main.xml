@@ -24,42 +24,89 @@
                     android:layout_height="wrap_content">
 
                 <Button
-                        android:id="@+id/btn_1"
+                        android:id="@+id/btnTabFirst"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
                         app:layout_constraintStart_toStartOf="parent"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="24dp"
-                        app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_2" android:layout_marginBottom="24dp"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintEnd_toStartOf="@+id/btnTabSecond"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/_1"
+                        android:textColor="@color/white"/>
+
+                <ImageView
+                        android:id="@+id/iconButtonLeft"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintStart_toEndOf="@id/btnTabFirst"
+                        app:layout_constraintEnd_toEndOf="@id/btnTabFirst"
+                        app:layout_constraintTop_toTopOf="@id/btnTabFirst"
+                        app:layout_constraintBottom_toTopOf="@id/btnTabFirst"
+                        android:src="@mipmap/ic_launcher_round"
+                        android:elevation="2dp"
+                        android:translationZ="2dp"
+                />
 
                 <Button
-                        android:id="@+id/btn_2"
+                        android:id="@+id/btnTabSecond"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="24dp"
-                        app:layout_constraintStart_toEndOf="@+id/btn_1"
+                        app:layout_constraintStart_toEndOf="@+id/btnTabFirst"
                         android:layout_marginStart="4dp"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintEnd_toStartOf="@+id/btn_3"
-                        android:visibility="visible"/>
+                        app:layout_constraintEnd_toStartOf="@+id/btnTabThird"
+                        android:visibility="visible"
+                        android:text="@string/_2"
+                        android:textColor="@color/white"/>
+
+                <ImageView
+                        android:id="@+id/iconButtonCenter"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintStart_toEndOf="@id/btnTabSecond"
+                        app:layout_constraintEnd_toEndOf="@id/btnTabSecond"
+                        app:layout_constraintTop_toTopOf="@id/btnTabSecond"
+                        app:layout_constraintBottom_toTopOf="@id/btnTabSecond"
+                        android:src="@mipmap/ic_launcher_round"
+                        android:elevation="2dp"
+                        android:translationZ="2dp"
+                />
+
 
                 <Button
-                        android:id="@+id/btn_3"
+                        android:id="@+id/btnTabThird"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
                         android:layout_marginTop="24dp"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/btn_2"
+                        app:layout_constraintStart_toEndOf="@+id/btnTabSecond"
                         android:layout_marginStart="4dp"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/_3"
+                        android:textColor="@color/white"
                 />
+
+                <ImageView
+                        android:id="@+id/iconButtonRight"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        app:layout_constraintStart_toEndOf="@id/btnTabThird"
+                        app:layout_constraintEnd_toEndOf="@id/btnTabThird"
+                        app:layout_constraintTop_toTopOf="@id/btnTabThird"
+                        app:layout_constraintBottom_toTopOf="@id/btnTabThird"
+                        android:src="@mipmap/ic_launcher_round"
+                        android:elevation="2dp"
+                        android:translationZ="2dp"
+                />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

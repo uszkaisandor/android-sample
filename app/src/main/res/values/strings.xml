@@ -6,5 +6,8 @@
     <string name="fragment_1">First Fragment</string>
     <string name="fragment_2">Second Fragment</string>
     <string name="fragment_3">Third Fragment</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
 
 </resources>
