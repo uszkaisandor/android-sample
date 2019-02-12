@@ -26,23 +26,26 @@ class FirstFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerView.visibility = View.GONE
         setAdapter()
         getUsers()
     }
 
     private fun setAdapter() {
-        mainList?.layoutManager = LinearLayoutManager(requireActivity())
-        mainList?.setHasFixedSize(true)
-        mainList?.adapter = UserAdapter(requireActivity(), ArrayList())
+        recyclerView?.layoutManager = LinearLayoutManager(requireActivity())
+        recyclerView?.setHasFixedSize(true)
+        recyclerView?.adapter = UserAdapter(requireActivity(), ArrayList())
     }
 
     private fun getUsers() {
         UserController().getUsers(object : HandleResponse<UserWrapper> {
             override fun onResponse(response: UserWrapper) {
                 if (response.users.isNotEmpty()) {
-                    (mainList?.adapter as UserAdapter).setDataSet(response.users)
-                    mainList?.adapter?.notifyDataSetChanged()
+                    (recyclerView?.adapter as UserAdapter).setDataSet(response.users)
+                    recyclerView?.adapter?.notifyDataSetChanged()
                 }
+                progressBarCircular.visibility = View.GONE
+                recyclerView?.visibility = View.VISIBLE
             }
 
             override fun onError(error: Throwable) {
