@@ -6,4 +6,5 @@
     <color name="colorIndicator">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="colorCardGrey">#EEEEEE</color>
+    <color name="colorSearchViewBorder">#B0BEC5</color>
 </resources>
