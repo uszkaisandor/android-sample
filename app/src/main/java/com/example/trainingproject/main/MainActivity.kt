@@ -1,6 +1,5 @@
 package com.example.trainingproject.main
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +8,7 @@ import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
-import androidx.viewpager.widget.PagerTabStrip
+import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
 import de.mateware.snacky.Snacky
 
@@ -22,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewPager?.let {
-            val adapter = ViewPagerAdapter(supportFragmentManager)
+            val adapter = ViewPagerAdapter(supportFragmentManager, this)
             viewPager.adapter = adapter
         }
 
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setPagerIndicatorColor() {
         pagerHeader.setTabIndicatorColorResource(R.color.colorIndicator)
-        pagerHeader.setTextColor(resources.getColor(R.color.white))
+        pagerHeader.setTextColor(ContextCompat.getColor(this, R.color.white))
     }
 
 
@@ -46,12 +45,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setButtonListeners() {
         btnTabFirst.setOnClickListener {
+            viewPager.setCurrentItem(0, true)
         }
 
         btnTabSecond.setOnClickListener {
+            viewPager.setCurrentItem(1, true)
         }
 
         btnTabThird.setOnClickListener {
+            viewPager.setCurrentItem(2, true)
         }
     }
 

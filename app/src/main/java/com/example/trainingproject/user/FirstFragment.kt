@@ -15,8 +15,8 @@ import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {
 
-    override fun getTitle(): String {
-        return getString(R.string.users)
+    override fun getTitle(): Int {
+        return R.string.users
     }
 
 

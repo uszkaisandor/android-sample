@@ -1,5 +1,6 @@
 package com.example.trainingproject.main
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -9,7 +10,7 @@ import com.example.trainingproject.ThirdFragment
 import com.example.trainingproject.user.FirstFragment
 
 
-class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter internal constructor(fm: FragmentManager, private val context: Context) : FragmentPagerAdapter(fm) {
 
     private val COUNT = 3
 
@@ -29,6 +30,6 @@ class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPager
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return "ASD"//(getItem(position) as BaseFragment).getTitle()
+        return context.getString((getItem(position) as BaseFragment).getTitle())
     }
 }

@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 class SecondFragment : BaseFragment() {
-    override fun getTitle(): String {
-        return getString(R.string.grid)
+    override fun getTitle(): Int {
+        return R.string.grid
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

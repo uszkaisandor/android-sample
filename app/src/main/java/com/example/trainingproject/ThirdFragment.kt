@@ -12,8 +12,8 @@ class ThirdFragment : BaseFragment(), OnMapReadyCallback {
 
     }
 
-    override fun getTitle(): String {
-        return getString(R.string.google_maps)
+    override fun getTitle(): Int {
+        return R.string.google_maps
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
