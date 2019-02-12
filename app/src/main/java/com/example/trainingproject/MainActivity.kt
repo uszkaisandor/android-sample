@@ -1,10 +1,14 @@
 package com.example.trainingproject
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.example.trainingproject.service.RandomColor
+import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
+import android.graphics.drawable.ColorDrawable
+
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +36,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         iconButtonLeft.setOnClickListener{
-
+            val toastMessage = "Left icon button pressed!"
+            val textColor = Color.parseColor("#ffffff");
+            val backgroundColor = (btnTabFirst.background as ColorDrawable).color
+            DynamicToast.make(applicationContext, toastMessage, textColor , backgroundColor).show();
         }
 
         iconButtonCenter.setOnClickListener{
