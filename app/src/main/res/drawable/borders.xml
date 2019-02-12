@@ -9,5 +9,5 @@
         android:top="8dp" />
     <stroke
         android:color="@color/colorSearchViewBorder"
-        android:width="4dp"/>
+        android:width="2dp"/>
 </shape>

@@ -1,5 +1,7 @@
 package com.example.trainingproject.user
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +17,8 @@ import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {
 
+    private val ANIMATION_TIME = 500L
+
     override fun getTitle(): Int {
         return R.string.users
     }
@@ -26,7 +30,6 @@ class FirstFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recyclerView.visibility = View.GONE
         setAdapter()
         getUsers()
     }
@@ -44,8 +47,7 @@ class FirstFragment : BaseFragment() {
                     (recyclerView?.adapter as UserAdapter).setDataSet(response.users)
                     recyclerView?.adapter?.notifyDataSetChanged()
                 }
-                progressBarCircular.visibility = View.GONE
-                recyclerView?.visibility = View.VISIBLE
+                crossfade()
             }
 
             override fun onError(error: Throwable) {
@@ -53,5 +55,27 @@ class FirstFragment : BaseFragment() {
                 Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+    private fun crossfade(){
+        recyclerView.apply {
+            animate()
+                .alpha(1f)
+                .setDuration(ANIMATION_TIME)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                       recyclerView.visibility = View.VISIBLE
+                    }
+                })
+        }
+        progressBarCircular.animate()
+            .alpha(0f)
+            .setDuration(ANIMATION_TIME)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    progressBarCircular.visibility = View.GONE
+                }
+            })
+
     }
 }
