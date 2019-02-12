@@ -20,6 +20,7 @@
     <string name="users">Users</string>
     <string name="grid">Grid</string>
     <string name="google_maps">Google Maps</string>
+    <string name="avatar_of_contact">Avatar of contact</string>
 
 
 </resources>
