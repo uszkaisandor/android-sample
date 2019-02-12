@@ -7,7 +7,7 @@ import com.example.trainingproject.service.RandomColor
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
-import com.afollestad.materialdialogs.MaterialDialog
+import androidx.appcompat.app.AlertDialog
 import de.mateware.snacky.Snacky
 
 
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        view_pager ?. let {
+        view_pager?.let {
             val adapter = ViewPagerAdapter(supportFragmentManager)
             view_pager.adapter = adapter
         }
@@ -27,28 +27,28 @@ class MainActivity : AppCompatActivity() {
         RandomColor.setButtonBackground(btnTabSecond)
         RandomColor.setButtonBackground(btnTabThird)
 
-        btnTabFirst.setOnClickListener{
+        btnTabFirst.setOnClickListener {
         }
 
-        btnTabSecond.setOnClickListener{
+        btnTabSecond.setOnClickListener {
         }
 
-        btnTabThird.setOnClickListener{
+        btnTabThird.setOnClickListener {
         }
 
-        iconButtonLeft.setOnClickListener{
-            val toastMessage = R.string.left_icon_button_pressed.toString()
+        iconButtonLeft.setOnClickListener {
+            val toastMessage = getString(R.string.left_icon_button_pressed)
             val textColor = Color.parseColor("#ffffff");
             val backgroundColor = (btnTabFirst.background as ColorDrawable).color
-            DynamicToast.make(applicationContext, toastMessage, textColor , backgroundColor).show();
+            DynamicToast.make(applicationContext, toastMessage, textColor, backgroundColor).show();
         }
 
-        iconButtonCenter.setOnClickListener{
+        iconButtonCenter.setOnClickListener {
             val textColor = Color.parseColor("#ffffff");
             val backgroundColor = (btnTabSecond.background as ColorDrawable).color
             Snacky.builder()
                 .setActivity(this@MainActivity)
-                .setText(R.string.center_icon_button_pressed.toString())
+                .setText(R.string.center_icon_button_pressed)
                 .setTextColor(textColor)
                 .centerText()
                 .setBackgroundColor(backgroundColor)
@@ -57,9 +57,25 @@ class MainActivity : AppCompatActivity() {
                 .show()
         }
 
-        iconButtonRight.setOnClickListener{
+        iconButtonRight.setOnClickListener {
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(this@MainActivity)
+                builder.apply {
+                    setPositiveButton(
+                        R.string.ok
+                    ) { dialog, id ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert_dialog_title)
+                    setMessage(R.string.alert_dialog_message)
+                }
+                builder.create()
             }
+            alertDialog?.show()
+            val backgroundColor = (btnTabThird.background as ColorDrawable)
+            alertDialog?.window?.setBackgroundDrawable(backgroundColor)
         }
-
     }
+
 }
+
