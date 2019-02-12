@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 
-class SecondFragment : Fragment() {
+class SecondFragment : BaseFragment() {
+    override fun getTitle(): String {
+        return getString(R.string.grid)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 

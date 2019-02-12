@@ -1,9 +1,12 @@
-package com.example.trainingproject
+package com.example.trainingproject.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.FragmentStatePagerAdapter
+import com.example.trainingproject.BaseFragment
+import com.example.trainingproject.SecondFragment
+import com.example.trainingproject.ThirdFragment
+import com.example.trainingproject.user.FirstFragment
 
 
 class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -26,6 +29,6 @@ class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentPager
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return "Tab " + (position + 1)
+        return "ASD"//(getItem(position) as BaseFragment).getTitle()
     }
 }

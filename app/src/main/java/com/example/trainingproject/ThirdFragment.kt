@@ -4,16 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 
-class ThirdFragment : Fragment() {
+class ThirdFragment : BaseFragment(), OnMapReadyCallback {
+    override fun onMapReady(googleMap: GoogleMap?) {
+
+    }
+
+    override fun getTitle(): String {
+        return getString(R.string.google_maps)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.third_fragment, container, false)
-        val textView = view.findViewById<TextView>(R.id.tv_fragment_3)
-        textView.setText(R.string.fragment_3)
         return view
     }
 }

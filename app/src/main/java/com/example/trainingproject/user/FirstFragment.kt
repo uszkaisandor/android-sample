@@ -1,25 +1,27 @@
-package com.example.trainingproject
+package com.example.trainingproject.user
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.trainingproject.BaseFragment
+import com.example.trainingproject.R
 import com.example.trainingproject.model.UserWrapper
 import com.example.trainingproject.service.HandleResponse
 import com.example.trainingproject.service.UserController
 import kotlinx.android.synthetic.main.first_fragment.*
 
-class FirstFragment : Fragment() {
+class FirstFragment : BaseFragment() {
+
+    override fun getTitle(): String {
+        return getString(R.string.users)
+    }
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        val view = inflater.inflate(R.layout.first_fragment, container, false)
-
-        return view
+        return inflater.inflate(R.layout.first_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,9 +46,8 @@ class FirstFragment : Fragment() {
             }
 
             override fun onError(error: Throwable) {
-                //See this
                 error.printStackTrace()
-                Toast.makeText(requireActivity(), "Error!", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_LONG).show()
             }
         })
     }
