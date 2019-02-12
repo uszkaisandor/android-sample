@@ -7,7 +7,8 @@ import com.example.trainingproject.service.RandomColor
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
-
+import com.afollestad.materialdialogs.MaterialDialog
+import de.mateware.snacky.Snacky
 
 
 class MainActivity : AppCompatActivity() {
@@ -36,18 +37,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         iconButtonLeft.setOnClickListener{
-            val toastMessage = "Left icon button pressed!"
+            val toastMessage = R.string.left_icon_button_pressed.toString()
             val textColor = Color.parseColor("#ffffff");
             val backgroundColor = (btnTabFirst.background as ColorDrawable).color
             DynamicToast.make(applicationContext, toastMessage, textColor , backgroundColor).show();
         }
 
         iconButtonCenter.setOnClickListener{
-
+            val textColor = Color.parseColor("#ffffff");
+            val backgroundColor = (btnTabSecond.background as ColorDrawable).color
+            Snacky.builder()
+                .setActivity(this@MainActivity)
+                .setText(R.string.center_icon_button_pressed.toString())
+                .setTextColor(textColor)
+                .centerText()
+                .setBackgroundColor(backgroundColor)
+                .setDuration(Snacky.LENGTH_SHORT)
+                .build()
+                .show()
         }
 
         iconButtonRight.setOnClickListener{
-
+            }
         }
 
     }

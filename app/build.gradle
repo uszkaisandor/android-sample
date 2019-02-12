@@ -54,5 +54,8 @@ dependencies {
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     implementation 'com.pranavpandey.android:dynamic-toasts:2.2.1'
+    implementation 'com.github.matecode:Snacky:1.1.4'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.afollestad.material-dialogs:core:2.0.0'
 
 }
