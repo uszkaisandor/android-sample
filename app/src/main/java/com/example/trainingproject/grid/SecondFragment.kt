@@ -1,5 +1,7 @@
 package com.example.trainingproject.grid
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.content.res.Resources
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -39,14 +41,15 @@ class SecondFragment : BaseFragment() {
     private fun getItemNumbers() {
         val numbersForList = (1..32).toList().toTypedArray()
         val gridItemList = arrayListOf<GridItem>()
-        for (i in numbersForList){
+        for (i in numbersForList) {
             val item = GridItem(i)
             gridItemList.add(item)
         }
-        if (gridItemList.isNotEmpty()){
+        if (gridItemList.isNotEmpty()) {
             (recyclerViewGrid?.adapter as GridAdapter).setDataSet(gridItemList)
             recyclerViewGrid?.adapter?.notifyDataSetChanged()
         }
+        crossfade()
 
     }
 
@@ -57,6 +60,28 @@ class SecondFragment : BaseFragment() {
         val displayWidthInPixels = displayMetrics.widthPixels
         //  Return display width in dp
         return (displayWidthInPixels / Resources.getSystem().displayMetrics.density).toInt()
+    }
+
+    private fun crossfade() {
+        recyclerViewGrid.apply {
+            animate()
+                .alpha(1f)
+                .setDuration(ANIMATION_TIME)
+                .setListener(object : AnimatorListenerAdapter() {
+                    override fun onAnimationEnd(animation: Animator) {
+                        recyclerViewGrid?.visibility = View.VISIBLE
+                    }
+                })
+        }
+        progressBarCircularGrid.animate()
+            .alpha(0f)
+            .setDuration(ANIMATION_TIME)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    progressBarCircularGrid.visibility = View.GONE
+                }
+            })
+
     }
 
 }

@@ -17,8 +17,6 @@ import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {
 
-    private val ANIMATION_TIME = 500L
-
     override fun getTitle(): Int {
         return R.string.users
     }
@@ -63,7 +61,7 @@ class FirstFragment : BaseFragment() {
                 .setDuration(ANIMATION_TIME)
                 .setListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
-                        recyclerView.visibility = View.VISIBLE
+                        recyclerView?.visibility = View.VISIBLE
                     }
                 })
         }
