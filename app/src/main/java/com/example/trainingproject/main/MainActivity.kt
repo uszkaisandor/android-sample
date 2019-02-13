@@ -3,7 +3,6 @@ package com.example.trainingproject.main
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.trainingproject.service.RandomColor
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
@@ -12,6 +11,9 @@ import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
 import com.example.trainingproject.service.ViewBackgroundChanger
 import de.mateware.snacky.Snacky
+
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,12 +27,15 @@ class MainActivity : AppCompatActivity() {
             val adapter = ViewPagerAdapter(supportFragmentManager, this)
             viewPager.adapter = adapter
         }
-
+        viewPager.setOnTouchListener { v, event ->
+            false
+        }
         setButtonColors()
         setButtonListeners()
         setIconButtonListeners()
         setPagerIndicatorColor()
     }
+
 
     private fun setPagerIndicatorColor() {
         pagerHeader.setTabIndicatorColorResource(R.color.colorIndicator)
