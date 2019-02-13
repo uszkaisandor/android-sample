@@ -10,6 +10,7 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
+import com.example.trainingproject.service.ViewBackgroundChanger
 import de.mateware.snacky.Snacky
 
 
@@ -38,9 +39,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setButtonColors() {
-        RandomColor.setButtonBackground(btnTabFirst)
-        RandomColor.setButtonBackground(btnTabSecond)
-        RandomColor.setButtonBackground(btnTabThird)
+        ViewBackgroundChanger.setViewBackground(btnTabFirst)
+        ViewBackgroundChanger.setViewBackground(btnTabSecond)
+        ViewBackgroundChanger.setViewBackground(btnTabThird)
     }
 
     private fun setButtonListeners() {
@@ -61,13 +62,13 @@ class MainActivity : AppCompatActivity() {
 
         iconButtonLeft.setOnClickListener {
             val toastMessage = getString(R.string.left_icon_button_pressed)
-            val textColor = Color.parseColor("#ffffff");
+            val textColor = Color.parseColor("#ffffff")
             val backgroundColor = (btnTabFirst.background as ColorDrawable).color
-            DynamicToast.make(applicationContext, toastMessage, textColor, backgroundColor).show();
+            DynamicToast.make(applicationContext, toastMessage, textColor, backgroundColor).show()
         }
 
         iconButtonCenter.setOnClickListener {
-            val textColor = Color.parseColor("#ffffff");
+            val textColor = Color.parseColor("#ffffff")
             val backgroundColor = (btnTabSecond.background as ColorDrawable).color
             Snacky.builder()
                 .setActivity(this@MainActivity)

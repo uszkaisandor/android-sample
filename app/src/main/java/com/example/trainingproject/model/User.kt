@@ -2,7 +2,7 @@ package com.example.trainingproject.model
 
 import com.squareup.moshi.Json
 
-class User(
+data class User(
     var name: Name,
     var location: Location,
     @Json(name = "phone")

@@ -23,7 +23,6 @@ class FirstFragment : BaseFragment() {
         return R.string.users
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.first_fragment, container, false)
     }
@@ -57,14 +56,14 @@ class FirstFragment : BaseFragment() {
         })
     }
 
-    private fun crossfade(){
+    private fun crossfade() {
         recyclerView.apply {
             animate()
                 .alpha(1f)
                 .setDuration(ANIMATION_TIME)
                 .setListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
-                       recyclerView.visibility = View.VISIBLE
+                        recyclerView.visibility = View.VISIBLE
                     }
                 })
         }
