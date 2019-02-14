@@ -6,14 +6,12 @@ import android.os.Bundle
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
 import com.example.trainingproject.service.ViewBackgroundChanger
 import de.mateware.snacky.Snacky
-
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,13 +20,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         viewPager?.let {
             val adapter = ViewPagerAdapter(supportFragmentManager, this)
             viewPager.adapter = adapter
-        }
-        viewPager.setOnTouchListener { v, event ->
-            false
         }
         setButtonColors()
         setButtonListeners()
@@ -64,7 +58,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setIconButtonListeners() {
-
         iconButtonLeft.setOnClickListener {
             val toastMessage = getString(R.string.left_icon_button_pressed)
             val textColor = Color.parseColor("#ffffff")
@@ -105,5 +98,6 @@ class MainActivity : AppCompatActivity() {
             alertDialog?.window?.setBackgroundDrawable(backgroundColor)
         }
     }
+
 }
 

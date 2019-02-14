@@ -3,23 +3,26 @@ package com.example.trainingproject.user
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.trainingproject.R
 import com.example.trainingproject.model.User
 import kotlinx.android.synthetic.main.list_element.view.*
+import androidx.core.content.ContextCompat.startActivity
+import android.content.Intent
+import android.net.Uri
+import com.example.trainingproject.main.MainActivity
+
 
 class UserAdapter(
     private var context: Context,
     private var users: List<User>
-): RecyclerView.Adapter<UserAdapter.UserHolder>() {
+) : RecyclerView.Adapter<UserAdapter.UserHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): UserHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.list_element, parent, false)
         return UserHolder(view)
@@ -36,11 +39,17 @@ class UserAdapter(
     override fun onBindViewHolder(holder: UserHolder, p1: Int) {
         val dynamicPosition: Int = holder.adapterPosition
         val user: User = users[dynamicPosition]
-
         setTexts(holder, user)
         setImage(holder, user)
-    }
+        holder.address?.setOnClickListener { view ->
 
+        }
+        holder.mobile?.setOnClickListener { view ->
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.data = Uri.parse("tel:${holder.mobile?.text}")
+            context.startActivity(intent)
+        }
+    }
 
     @SuppressLint("SetTextI18n")
     private fun setTexts(holder: UserHolder, user: User) {
@@ -51,12 +60,12 @@ class UserAdapter(
     }
 
     private fun setImage(holder: UserHolder, user: User) {
-        holder.profilePicture ?. let {imageView ->
-            Glide.with(context).load(user.picture.picture).into( imageView )
+        holder.profilePicture?.let { imageView ->
+            Glide.with(context).load(user.picture.picture).into(imageView)
         }
     }
 
-    class UserHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class UserHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var firstName: TextView? = itemView.first_name
         var lastName: TextView? = itemView.last_name
         var address: TextView? = itemView.address

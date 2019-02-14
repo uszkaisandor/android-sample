@@ -66,7 +66,7 @@ class SecondFragment : BaseFragment() {
         recyclerViewGrid.apply {
             animate()
                 .alpha(1f)
-                .setDuration(ANIMATION_TIME)
+                .setDuration(animationTime)
                 .setListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
                         recyclerViewGrid?.visibility = View.VISIBLE
@@ -75,7 +75,7 @@ class SecondFragment : BaseFragment() {
         }
         progressBarCircularGrid.animate()
             .alpha(0f)
-            .setDuration(ANIMATION_TIME)
+            .setDuration(animationTime)
             .setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
                     progressBarCircularGrid.visibility = View.GONE

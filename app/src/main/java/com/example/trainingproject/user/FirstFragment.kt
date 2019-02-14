@@ -58,7 +58,7 @@ class FirstFragment : BaseFragment() {
         recyclerView.apply {
             animate()
                 .alpha(1f)
-                .setDuration(ANIMATION_TIME)
+                .setDuration(animationTime)
                 .setListener(object : AnimatorListenerAdapter() {
                     override fun onAnimationEnd(animation: Animator) {
                         recyclerView?.visibility = View.VISIBLE
@@ -67,10 +67,10 @@ class FirstFragment : BaseFragment() {
         }
         progressBarCircular.animate()
             .alpha(0f)
-            .setDuration(ANIMATION_TIME)
+            .setDuration(animationTime)
             .setListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
-                    progressBarCircular.visibility = View.GONE
+                    progressBarCircular?.visibility = View.GONE
                 }
             })
 
