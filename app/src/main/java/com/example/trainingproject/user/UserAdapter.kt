@@ -13,10 +13,8 @@ import com.bumptech.glide.Glide
 import com.example.trainingproject.R
 import com.example.trainingproject.model.User
 import kotlinx.android.synthetic.main.list_element.view.*
-import androidx.core.content.ContextCompat.startActivity
 import android.content.Intent
 import android.net.Uri
-import com.example.trainingproject.main.MainActivity
 
 
 class UserAdapter(
@@ -41,20 +39,26 @@ class UserAdapter(
         val user: User = users[dynamicPosition]
         setTexts(holder, user)
         setImage(holder, user)
-        holder.address?.setOnClickListener { view ->
 
+        holder.address?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("geo:0,0?q=${Uri.encode(holder.address?.text as String)}")
+            }
+            context.startActivity(intent)
         }
-        holder.mobile?.setOnClickListener { view ->
+
+        holder.mobile?.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:${holder.mobile?.text}")
             context.startActivity(intent)
         }
+
     }
 
     @SuppressLint("SetTextI18n")
     private fun setTexts(holder: UserHolder, user: User) {
-        holder.firstName?.text = user.name.first
-        holder.lastName?.text = user.name.last
+        holder.firstName?.text = user.name.first?.capitalize()
+        holder.lastName?.text = user.name.last?.capitalize()
         holder.address?.text = "${user.location.postCode} ${user.location.city} ${user.location.street}"
         holder.mobile?.text = user.mobile
     }
