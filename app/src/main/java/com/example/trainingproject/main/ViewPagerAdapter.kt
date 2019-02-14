@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.trainingproject.BaseFragment
-import com.example.trainingproject.grid.SecondFragment
 import com.example.trainingproject.ThirdFragment
+import com.example.trainingproject.grid.SecondFragment
 import com.example.trainingproject.user.FirstFragment
 
 

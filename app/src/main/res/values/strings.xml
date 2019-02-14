@@ -18,7 +18,11 @@
     <string name="grid">Grid</string>
     <string name="google_maps">Google Maps</string>
     <string name="avatar_of_contact">Avatar of contact</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAJsxCxMzzhZmAicsGtkwmiq9O_TTRNZuk</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBeUIdRCMjS78yllrJzLJrQNQtHzhP5YOQ</string>
+    <string name="refresh_button">Refresh Button</string>
+    <string name="left_icon_button">Left icon button</string>
+    <string name="center_icon_button">Center icon button</string>
+    <string name="right_icon_button">Right icon button</string>
 
 
 </resources>

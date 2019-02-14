@@ -3,6 +3,8 @@ package com.example.trainingproject.user
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +15,6 @@ import com.bumptech.glide.Glide
 import com.example.trainingproject.R
 import com.example.trainingproject.model.User
 import kotlinx.android.synthetic.main.list_element.view.*
-import android.content.Intent
-import android.net.Uri
 
 
 class UserAdapter(

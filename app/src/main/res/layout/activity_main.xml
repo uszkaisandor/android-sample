@@ -1,152 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:fitsSystemWindows="true"
-    >
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_root"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/layout_coordinator"
+        <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-
-
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-                <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/appbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent">
-
-                    <include layout="@layout/toolbar" />
-
-                </com.google.android.material.appbar.AppBarLayout>
-
-                <Button
-                    android:id="@+id/btnTabFirst"
+                <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp"
-                    android:text="@string/_1"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/app_name"
                     android:textColor="@color/white"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btnTabSecond"
-                    app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/appbar" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/iconButtonLeft"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:elevation="2dp"
-                    android:padding="5dp"
-                    android:src="@mipmap/ic_launcher_round"
-                    android:translationZ="2dp"
-                    app:layout_constraintBottom_toTopOf="@id/btnTabFirst"
-                    app:layout_constraintEnd_toEndOf="@id/btnTabFirst"
-                    app:layout_constraintStart_toEndOf="@id/btnTabFirst"
-                    app:layout_constraintTop_toTopOf="@id/btnTabFirst" />
-
-                <Button
-                    android:id="@+id/btnTabSecond"
+                    android:id="@+id/ivRefresh"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/_2"
-                    android:textColor="@color/white"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toStartOf="@+id/btnTabThird"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/btnTabFirst"
-                    app:layout_constraintTop_toBottomOf="@id/appbar" />
-
-                <ImageView
-                    android:id="@+id/iconButtonCenter"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:elevation="2dp"
-                    android:padding="5dp"
-                    android:src="@mipmap/ic_launcher_round"
-                    android:translationZ="2dp"
-                    app:layout_constraintBottom_toTopOf="@id/btnTabSecond"
-                    app:layout_constraintEnd_toEndOf="@id/btnTabSecond"
-                    app:layout_constraintStart_toEndOf="@id/btnTabSecond"
-                    app:layout_constraintTop_toTopOf="@id/btnTabSecond" />
-
-
-                <Button
-                    android:id="@+id/btnTabThird"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="24dp"
-                    android:text="@string/_3"
-                    android:textColor="@color/white"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:src="@drawable/baseline_refresh_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/btnTabSecond"
-                    app:layout_constraintTop_toBottomOf="@id/appbar" />
-
-                <ImageView
-                    android:id="@+id/iconButtonRight"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:elevation="2dp"
-                    android:padding="5dp"
-                    android:src="@mipmap/ic_launcher_round"
-                    android:translationZ="2dp"
-                    app:layout_constraintBottom_toTopOf="@id/btnTabThird"
-                    app:layout_constraintEnd_toEndOf="@id/btnTabThird"
-                    app:layout_constraintStart_toEndOf="@id/btnTabThird"
-                    app:layout_constraintTop_toTopOf="@id/btnTabThird" />
-
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/refresh_button" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.appcompat.widget.Toolbar>
 
-        <com.example.trainingproject.CustomViewPager
-            android:id="@+id/viewPager"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_coordinator">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <androidx.viewpager.widget.PagerTabStrip
-                android:id="@+id/pagerHeader"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnTabFirst"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:background="@color/colorPrimary" />
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/_1"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnTabSecond"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </com.example.trainingproject.CustomViewPager>
+            <ImageView
+                android:id="@+id/iconButtonLeft"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:elevation="2dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:translationZ="2dp"
+                app:layout_constraintBottom_toTopOf="@id/btnTabFirst"
+                app:layout_constraintEnd_toEndOf="@id/btnTabFirst"
+                app:layout_constraintStart_toEndOf="@id/btnTabFirst"
+                app:layout_constraintTop_toTopOf="@id/btnTabFirst"
+                android:contentDescription="@string/left_icon_button" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btnTabSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/_2"
+                android:textColor="@color/white"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnTabThird"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnTabFirst"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <ImageView
+                android:id="@+id/iconButtonCenter"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:elevation="2dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:translationZ="2dp"
+                app:layout_constraintBottom_toTopOf="@id/btnTabSecond"
+                app:layout_constraintEnd_toEndOf="@id/btnTabSecond"
+                app:layout_constraintStart_toEndOf="@id/btnTabSecond"
+                app:layout_constraintTop_toTopOf="@id/btnTabSecond"
+                android:contentDescription="@string/center_icon_button" />
 
-</ScrollView>
+            <Button
+                android:id="@+id/btnTabThird"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/_3"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/btnTabSecond"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconButtonRight"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:elevation="2dp"
+                android:padding="5dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:translationZ="2dp"
+                app:layout_constraintBottom_toTopOf="@id/btnTabThird"
+                app:layout_constraintEnd_toEndOf="@id/btnTabThird"
+                app:layout_constraintStart_toEndOf="@id/btnTabThird"
+                app:layout_constraintTop_toTopOf="@id/btnTabThird"
+                android:contentDescription="@string/right_icon_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.example.trainingproject.CustomViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.viewpager.widget.PagerTabStrip
+            android:id="@+id/pagerHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/colorPrimary" />
+
+    </com.example.trainingproject.CustomViewPager>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

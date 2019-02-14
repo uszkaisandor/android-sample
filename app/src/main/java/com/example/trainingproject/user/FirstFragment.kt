@@ -13,6 +13,7 @@ import com.example.trainingproject.R
 import com.example.trainingproject.model.UserWrapper
 import com.example.trainingproject.service.HandleResponse
 import com.example.trainingproject.service.UserController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {

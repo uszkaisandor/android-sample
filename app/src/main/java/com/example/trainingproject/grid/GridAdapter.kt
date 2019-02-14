@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.item_grid.view.*
 class GridAdapter(
     private var context: Context,
     private var gridItems: List<GridItem>
-): RecyclerView.Adapter<GridAdapter.GridItemHolder>() {
+) : RecyclerView.Adapter<GridAdapter.GridItemHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): GridItemHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_grid, parent, false)
         return GridItemHolder(view)
@@ -33,13 +33,18 @@ class GridAdapter(
         val dynamicPosition: Int = holder.adapterPosition
         val gridItem: GridItem = gridItems[dynamicPosition]
         setText(holder, gridItem)
+        setColor(holder)
+    }
+
+    private fun setColor(holder: GridItemHolder) {
+        holder.cardNumber?.setBackgroundColor(RandomColor.generateColor())
     }
 
 
     @SuppressLint("SetTextI18n")
     private fun setText(holder: GridItemHolder, gridItem: GridItem) {
         holder.cardNumber?.text = gridItem.cardNumber.toString()
-        holder.cardNumber?.setBackgroundColor(RandomColor.generateColor())
+        //holder.cardNumber?.setBackgroundColor(RandomColor.generateColor())
     }
 
     class GridItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

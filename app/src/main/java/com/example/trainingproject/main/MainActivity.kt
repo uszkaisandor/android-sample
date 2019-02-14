@@ -1,19 +1,18 @@
 package com.example.trainingproject.main
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.pranavpandey.android.dynamic.toasts.DynamicToast
-import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
-import android.view.View
-import androidx.annotation.StyleRes
+import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
 import com.example.trainingproject.service.ViewBackgroundChanger
+import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import de.mateware.snacky.Snacky
-import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.first_fragment.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         setButtonListeners()
         setIconButtonListeners()
         setPagerIndicatorColor()
+        setToolbarListeners()
     }
-
 
     private fun setPagerIndicatorColor() {
         pagerHeader.setTabIndicatorColorResource(R.color.colorIndicator)
@@ -45,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         ViewBackgroundChanger.setViewBackground(btnTabSecond)
         ViewBackgroundChanger.setViewBackground(btnTabThird)
     }
+
 
     private fun setButtonListeners() {
         btnTabFirst.setOnClickListener {
@@ -99,6 +99,12 @@ class MainActivity : AppCompatActivity() {
             alertDialog?.show()
             val backgroundColor = (btnTabThird.background as ColorDrawable)
             alertDialog?.window?.setBackgroundDrawable(backgroundColor)
+        }
+    }
+
+    private fun setToolbarListeners() {
+        ivRefresh.setOnClickListener{
+            setButtonColors()
         }
     }
 
