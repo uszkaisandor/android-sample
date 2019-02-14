@@ -7,11 +7,13 @@ import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import kotlinx.android.synthetic.main.activity_main.*
 import android.graphics.drawable.ColorDrawable
 import android.view.View
+import androidx.annotation.StyleRes
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
 import com.example.trainingproject.service.ViewBackgroundChanger
 import de.mateware.snacky.Snacky
+import kotlinx.android.synthetic.main.toolbar.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
         viewPager?.let {
             val adapter = ViewPagerAdapter(supportFragmentManager, this)
             viewPager.adapter = adapter

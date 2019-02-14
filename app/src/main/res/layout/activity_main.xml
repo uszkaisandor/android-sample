@@ -4,12 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/layout_coordinator"
@@ -19,9 +21,25 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
+
+
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <include layout="@layout/toolbar" />
+
+                </com.google.android.material.appbar.AppBarLayout>
 
                 <Button
                     android:id="@+id/btnTabFirst"
@@ -36,7 +54,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/btnTabSecond"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/appbar" />
 
                 <ImageView
                     android:id="@+id/iconButtonLeft"
@@ -63,7 +81,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/btnTabThird"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/btnTabFirst"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/appbar" />
 
                 <ImageView
                     android:id="@+id/iconButtonCenter"
@@ -90,7 +108,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/btnTabSecond"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@id/appbar" />
 
                 <ImageView
                     android:id="@+id/iconButtonRight"
@@ -129,5 +147,6 @@
         </com.example.trainingproject.CustomViewPager>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

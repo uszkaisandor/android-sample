@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">TrainingProject</string>
-    <string name="one">1</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
     <string name="fragment_1">First Fragment</string>
     <string name="fragment_2">Second Fragment</string>
     <string name="fragment_3">Third Fragment</string>
@@ -21,6 +18,7 @@
     <string name="grid">Grid</string>
     <string name="google_maps">Google Maps</string>
     <string name="avatar_of_contact">Avatar of contact</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAJsxCxMzzhZmAicsGtkwmiq9O_TTRNZuk</string>
 
 
 </resources>
