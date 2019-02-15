@@ -10,12 +10,16 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.trainingproject.BaseFragment
 import com.example.trainingproject.R
-import com.example.trainingproject.model.UserWrapper
-import com.example.trainingproject.service.HandleResponse
+import com.example.trainingproject.common.DisposableManager
 import com.example.trainingproject.service.UserController
+import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {
+
+    private val disposableManager = DisposableManager()
 
     override fun getTitle(): Int {
         return R.string.users
@@ -28,7 +32,6 @@ class FirstFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setAdapter()
-        getUsers()
     }
 
     private fun setAdapter() {
@@ -37,21 +40,26 @@ class FirstFragment : BaseFragment() {
         recyclerView?.adapter = UserAdapter(requireActivity(), ArrayList())
     }
 
+    override fun onStart() {
+        super.onStart()
+        getUsers()
+    }
+
     private fun getUsers() {
-        UserController().getUsers(object : HandleResponse<UserWrapper> {
-            override fun onResponse(response: UserWrapper) {
-                if (response.users.isNotEmpty()) {
-                    (recyclerView?.adapter as UserAdapter).setDataSet(response.users)
+        disposableManager.add(
+            UserController().getUsers()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ response ->
+                if (response.isNotEmpty()) {
+                    (recyclerView?.adapter as UserAdapter).setDataSet(response)
                     recyclerView?.adapter?.notifyDataSetChanged()
                 }
                 crossfade()
-            }
-
-            override fun onError(error: Throwable) {
+            }, { error ->
                 error.printStackTrace()
                 Toast.makeText(requireActivity(), getString(R.string.error), Toast.LENGTH_LONG).show()
-            }
-        })
+            })
+        )
     }
 
     private fun crossfade() {
@@ -73,6 +81,10 @@ class FirstFragment : BaseFragment() {
                     progressBarCircular?.visibility = View.GONE
                 }
             })
+    }
 
+    override fun onStop() {
+        super.onStop()
+        disposableManager.dispose()
     }
 }
