@@ -4,6 +4,7 @@ package com.example.trainingproject.user
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -60,6 +61,9 @@ class UserAdapter(
         holder.firstName?.text = user.name.first?.capitalize()
         holder.lastName?.text = user.name.last?.capitalize()
         holder.address?.text = "${user.location.postCode} ${user.location.city} ${user.location.street}"
+        holder.address?.let {
+            it.paintFlags = it.paintFlags.or(Paint.UNDERLINE_TEXT_FLAG)
+        }
         holder.mobile?.text = user.mobile
     }
 

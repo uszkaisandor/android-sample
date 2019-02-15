@@ -40,4 +40,5 @@ class ThirdFragment : BaseFragment(), OnMapReadyCallback {
             addMarker(MarkerOptions().position(SYDNEY))
         }
     }
+
 }

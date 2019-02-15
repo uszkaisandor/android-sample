@@ -3,7 +3,6 @@ package com.example.trainingproject.main
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -12,7 +11,6 @@ import com.example.trainingproject.service.ViewBackgroundChanger
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import de.mateware.snacky.Snacky
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.first_fragment.*
 
 
 class MainActivity : AppCompatActivity() {
