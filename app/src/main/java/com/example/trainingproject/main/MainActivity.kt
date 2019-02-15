@@ -7,6 +7,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.trainingproject.R
+import com.example.trainingproject.common.DisposableManager
+import com.example.trainingproject.common.RxBus
+import com.example.trainingproject.event.OnPageChangedEvent
 import com.example.trainingproject.service.ViewBackgroundChanger
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import de.mateware.snacky.Snacky
@@ -15,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private val disposableManager = DisposableManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         viewPager?.let {
             val adapter = ViewPagerAdapter(supportFragmentManager, this)
             viewPager.adapter = adapter
+            tvTitle?.text = adapter.getPageTitle(viewPager.currentItem)
         }
         setButtonColors()
         setButtonListeners()
@@ -101,10 +106,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setToolbarListeners() {
-        ivRefresh.setOnClickListener{
+        ivRefresh.setOnClickListener {
             setButtonColors()
         }
     }
 
+    override fun onStart() {
+        super.onStart()
+        disposableManager.add(
+            RxBus.listen(OnPageChangedEvent::class.java).subscribe {
+                tvTitle?.text = it.pageName
+            })
+    }
+
+    override fun onStop() {
+        super.onStop()
+        disposableManager.dispose()
+    }
 }
 
