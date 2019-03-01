@@ -44,7 +44,6 @@ class GridAdapter(
     @SuppressLint("SetTextI18n")
     private fun setText(holder: GridItemHolder, gridItem: GridItem) {
         holder.cardNumber?.text = gridItem.cardNumber.toString()
-        //holder.cardNumber?.setBackgroundColor(RandomColor.generateColor())
     }
 
     class GridItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

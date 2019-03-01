@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:background="@color/colorPrimaryDark"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="@color/colorWhite"
             tools:text="@string/_1" />
 
     </androidx.cardview.widget.CardView>

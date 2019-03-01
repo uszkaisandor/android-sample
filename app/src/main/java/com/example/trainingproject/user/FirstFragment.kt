@@ -12,9 +12,7 @@ import com.example.trainingproject.BaseFragment
 import com.example.trainingproject.R
 import com.example.trainingproject.common.DisposableManager
 import com.example.trainingproject.service.UserController
-import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.first_fragment.*
 
 class FirstFragment : BaseFragment() {

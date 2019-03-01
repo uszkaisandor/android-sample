@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.trainingproject.BaseFragment
-import com.example.trainingproject.ThirdFragment
 import com.example.trainingproject.grid.SecondFragment
+import com.example.trainingproject.maps.ThirdFragment
 import com.example.trainingproject.user.FirstFragment
 
 
-class ViewPagerAdapter internal constructor(fm: FragmentManager, private val context: Context) : FragmentPagerAdapter(fm) {
+class ViewPagerAdapter internal constructor(fm: FragmentManager, private val context: Context) :
+    FragmentPagerAdapter(fm) {
 
     private val COUNT = 3
 
@@ -21,7 +22,6 @@ class ViewPagerAdapter internal constructor(fm: FragmentManager, private val con
             1 -> fragment = SecondFragment()
             2 -> fragment = ThirdFragment()
         }
-
         return fragment
     }
 
